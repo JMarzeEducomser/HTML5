@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Demo 5</title>
+        <meta charset="utf-8"/>
+        
+        <style>
+            canvas{
+                border: 1px solid red;
+            }
+        </style>
+        
+    </head>
+    
+    <body>
+        <h1><i>Canvas</i></h1>
+        <canvas id="canvas" width="400" height="200">
+            <p>Tu navegador no soporta CANVAS</p>
+        </canvas>
+        
+        <button onclick="rectangulo()">Dibujar Rectángulo</button>
+        <button onclick="linea()">Dibujar Línea</button>
+        <button onclick="circulo()">Dibujar Círculo</button>
+        <button onclick="gradienteLineal()">Dibujar Gradiente Lineal</button>
+        <button onclick="gradienteRadial()">Dibujar Gradiente Radial</button>
+        <button onclick="texto()">Dibujar Texto</button>
+        
+        <!-- SCRIPT -->
+        <script>
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            
+            function rectangulo(){
+                ctx.fillStyle = "#FF0000";
+                ctx.fillRect(0,0,150,75);
+            }
+            
+            function linea(){
+                ctx.moveTo(0,0);
+                ctx.lineTo(200,100);
+                ctx.stroke();
+            }
+            
+            function circulo(){
+                ctx.beginPath();
+                ctx.arc(95,50,40,0,2*Math.PI);
+                ctx.stroke();
+            }
+            
+            function gradienteLineal(){
+                var grd = ctx.createLinearGradient(0,0,200,0);
+                grd.addColorStop(0, "red");
+                grd.addColorStop(1, "white");
+                ctx.fillStyle = grd;
+                ctx.fillRect(10,10,150,80);
+            }
+            
+            function gradienteRadial(){
+                var grd = ctx.createRadialGradient(75,50,5,90,60,100);
+                grd.addColorStop(0, "blue");
+                grd.addColorStop(1, "cyan");
+                ctx.fillStyle = grd;
+                ctx.fillRect(10,10,150,80);
+            }
+            
+            function texto(){
+                ctx.font = "30px Arial";
+                ctx.fillText("Hola Mundo",10,50);
+                ctx.strokeText("Hola Mundo",20,60);
+            }
+        </script>
+    </body>
+</html>
