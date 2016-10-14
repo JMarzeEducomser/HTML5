@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Demo Transiciones</title>
+        <meta charset="utf-8"/>
+        
+        <style>
+            .transicion1{
+                background: none repeat scroll 0 0 #BBB;
+                padding: 40px;
+                box-shadow: 0 0 30px #333 inset;
+            }
+            .transicion1 div{
+                background: none repeat scroll 0 0 #0F0;
+                border-radius: 4px;
+                box-shadow: 0 0 20px #333;
+                height: 80px;
+                margin-left: 0;
+                width: 10%;
+                transition: all 1s ease-in;
+            }
+            .transicion1:hover div{
+                width: 20%;
+                margin-left: 80%;
+                background-color: #F00;
+            }
+            
+            .transicion2 input{
+                clear: left;
+                float: left;
+            }
+            .transicion2 div{
+                background: none repeat scroll 0 0 #999;
+                border-radius: 4px;
+                box-shadow: 0 0 20px #333;
+                height: 80px;
+            }
+            input{
+                background: none repeat scroll 0 0 rgba(255,255,255,.6);
+                border: 1px solid #C4A376;
+                border-radius: 5px;
+                height: 1.8em;
+                margin-bottom: 4px;
+                width: 100%;
+            }
+            #cuadro{
+                width: 20%;
+                transition: all 1s;
+            }
+            
+            ul.menu{
+                margin: auto;
+                width: 580px;
+            }
+            ul.menu li{
+                background: none repeat scroll 0 0 #999;
+                border: 1px solid #555;
+                border-radius: 10px 10px 0 0;
+                float: left;
+                font-weight: bold;
+                height: 26px;
+                list-style: none outside none;
+                padding-top: 15px;
+                position: relative;
+                text-align: center;
+                text-shadow: 1px 1px 0 #000;
+                width: 140px;
+                transition: all 2s;
+            }
+            ul.menu li:hover{
+                background-color: #9A44A6;
+                border-bottom-color: transparent;
+                z-index: 2;
+                box-shadow: 2px -2px 4px rgba(0,0,0,.4);
+            }
+            ul.menu li span{
+                color: #FFF;
+            }
+            
+            .imagen{
+                float: left;
+                width: 100%;
+            }
+            .imagen img{
+                float: left;
+                width: 100px;
+                transition: all 2s;
+            }
+            .imagen img:hover{
+                transform: scale(2) translate(50px,50px) rotate(10deg);
+            }
+        </style>
+        
+    </head>
+    
+    <body>
+        
+        <div class="transicion1">
+            <div></div>
+        </div>
+        
+        <div class="transicion2">
+            <input type="button" onclick="document.getElementById('cuadro').style.width='20%'" value="20%"/>
+            <input type="button" onclick="document.getElementById('cuadro').style.width='40%'" value="40%"/>
+            <input type="button" onclick="document.getElementById('cuadro').style.width='60%'" value="60%"/>
+            <div id="cuadro"></div>
+        </div>
+        
+        <ul class="menu">
+            <li><span>Inicio</span></li>
+            <li><span>CSS3</span></li>
+            <li><span>JavaScript</span></li>
+            <li><span>HTML5</span></li>
+        </ul>
+        
+        <div class="imagen">
+            <img src="img/logohtml5.png" alt=""/>
+            <img src="img/logohtml5.png" alt=""/>
+            <img src="img/logohtml5.png" alt=""/>
+            <img src="img/logohtml5.png" alt=""/>
+        </div>
+        
+    </body>
+</html>

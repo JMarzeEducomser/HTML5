@@ -15,10 +15,13 @@
             ctx.translate(radio, radio);
             radio = radio * .9;
             
-            dibujarReloj();
+            //dibujarReloj();
+            setInterval(dibujarReloj, 1000);
             
             function dibujarReloj(){
                 dibujarMarco();
+                dibujarNumeros();
+                dibujarHora();
             }
             
             function dibujarMarco(){
@@ -41,6 +44,55 @@
                 ctx.arc(0,0,radio*.1,0,2*Math.PI);
                 ctx.fillStyle = '#333';
                 ctx.fill();
+            }
+            
+            function dibujarNumeros(){
+                var ang;
+                var num;
+                ctx.font = radio*.15 + "px arial";
+                ctx.textBaseline = 'middle';
+                ctx.textAlign = 'center';
+                for(num = 1; num < 13; num++){
+                    ang = num * Math.PI / 6;
+                    
+                    ctx.rotate(ang);
+                    ctx.translate(0, -radio*.85);
+                    ctx.rotate(-ang);
+                    
+                    ctx.fillText(num.toString(), 0, 0);
+                    
+                    ctx.rotate(ang);
+                    ctx.translate(0, radio*.85);
+                    ctx.rotate(-ang);
+                }
+            }
+            
+            function dibujarHora(){
+                var ahora = new Date();
+                var hora = ahora.getHours();
+                var minuto = ahora.getMinutes();
+                var segundo = ahora.getSeconds();
+                
+                hora = hora % 12;
+                hora = (hora*Math.PI/6) + (minuto*Math.PI/(6*60)) + (segundo*Math.PI/(360*60));
+                dibujarManecilla(hora, radio*.5, radio*.07);
+                
+                minuto = (minuto*Math.PI/30) + (segundo*Math.PI/(30*60));
+                dibujarManecilla(minuto, radio*.8, radio*.07);
+                
+                segundo = (segundo*Math.PI/30);
+                dibujarManecilla(segundo, radio*.9, radio*.02);
+            }
+            
+            function dibujarManecilla(pos, longitud, ancho){
+                ctx.beginPath();
+                ctx.lineWidth = ancho;
+                ctx.lineCap = 'round';
+                ctx.moveTo(0, 0);
+                ctx.rotate(pos);
+                ctx.lineTo(0, -longitud);
+                ctx.stroke();
+                ctx.rotate(-pos);
             }
         </script>
     </body>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Demo Transformaciones</title>
+        <meta charset="utf-8"/>
+        
+        <style>
+            div{
+                width: 100px;
+                height: 100px;
+                border: 3px solid black;
+                text-align: center;
+                background-color: blue;
+                color: white;
+                margin-bottom: 5px;
+            }
+            div#caja1{
+                transform: translateX(400px) translateY(50px);
+            }
+            div#caja2{
+                transform: scale(.75) scaleX(1.25) skewX(25deg);
+            }
+            div#caja3{
+                transform: rotate(45deg);
+            }
+        </style>
+        
+    </head>
+    
+    <body>
+        
+        <div id="caja1"></div>
+        <div id="caja2">Caja 2</div>
+        <div id="caja3">Caja 3</div>
+        
+    </body>
+</html>
