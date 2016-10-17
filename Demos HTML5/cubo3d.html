@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Demo Cubo 3D</title>
+        <meta charset="utf-8"/>
+        
+        <style>
+            body{
+                margin: 0;
+                background-color: #333;
+                display: flex;
+                min-height: 100vh;
+            }
+            .contenedor{
+                margin: auto;
+                
+                perspective: 2500px;
+                perspective-origin: 0px -1000px;
+            }
+            .cubo{
+                width: 200px;
+                height: 200px;
+                position: relative;
+                
+                transform-style: preserve-3d;
+                animation: girar 5s infinite linear;
+            }
+            @keyframes girar{
+                from{
+                    transform: rotateY(0deg);
+                }
+                to{
+                    transform: rotateY(360deg);
+                }
+            }
+            .cara{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+            #uno{
+                background-color: crimson;
+                transform: translateZ(100px);
+            }
+            #dos{
+                background-color: darkorange;
+                transform: translateX(100px) rotateY(90deg);
+            }
+            #tres{
+                background-color: yellow;
+                transform: translateZ(-100px);
+            }
+            #cuatro{
+                background-color: blue;
+                transform: translateX(-100px) rotateY(90deg);
+            }
+            #cinco{
+                background-color: green;
+                transform: translateY(-100px) rotateX(90deg);
+            }
+            #seis{
+                background-color: white;
+                transform: translateY(100px) rotateX(90deg);
+            }
+        </style>
+        
+    </head>
+    
+    <body>
+        
+        <div class="contenedor">
+            <div class="cubo">
+                <div class="cara" id="uno"></div>
+                <div class="cara" id="dos"></div>
+                <div class="cara" id="tres"></div>
+                <div class="cara" id="cuatro"></div>
+                <div class="cara" id="cinco"></div>
+                <div class="cara" id="seis"></div>
+            </div>
+        </div>
+        
+    </body>
+</html>

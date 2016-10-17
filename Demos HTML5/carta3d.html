@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Demo Carta 3D</title>
+        <meta charset="utf-8"/>
+        
+        <style>
+            .contenedor{
+                height: 250px;
+                width: 250px;
+                margin: auto;
+                
+                perspective: 700px;
+            }
+            .carta{
+                height: 100%;
+                width: 100%;
+                
+                position: relative;
+                
+                transform-style: preserve-3d;
+                
+                transition: 2s;
+            }
+            .carta:hover{
+                transform: rotateY(180deg);
+            }
+            .lado{
+                height: 100%;
+                width: 100%;
+                
+                backface-visibility: hidden;
+                
+                position: absolute;
+            }
+            .frente{
+                background-color: blue;
+            }
+            .atras{
+                background-color: aqua;
+                
+                transform: rotateY(180deg);
+            }
+        </style>
+        
+    </head>
+    
+    <body>
+        
+        <div class="contenedor">
+            <div class="carta">
+                <div class="lado frente">FRENTE</div>
+                <div class="lado atras">ATRAS</div>
+            </div>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Demo Slider</title>
+        <meta charset="utf-8"/>
+        
+        <style>
+            body{
+                margin: 0;
+                background-color: #F5F6CE;
+                display: flex;
+                min-height: 100vh;
+            }
+            .slider{
+                width: 500px;
+                height: 300px;
+                margin: auto;
+                position: relative;
+                list-style: none;
+                padding: 0;
+                
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                
+                box-shadow: 0 0 0 15px white,
+                            0 0 0 35px black,
+                            0 35px 60px;
+            }
+            .slider img{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                
+                opacity: 0;
+                
+                transition: all .7s;
+            }
+            .slider input[type="radio"]{
+                /*position: relative;
+                z-index: 50;
+                margin: 10px;*/
+                display: none;
+            }
+            .slider input[type="radio"]:checked ~ img{
+                opacity: 1;
+            }
+            .slider input[type="radio"] + label{
+                position: relative;
+                z-index: 50;
+                margin: 10px;
+                
+                display: block;
+                width: 15px;
+                height: 15px;
+                background-color: white;
+                border-radius: 50%;
+                border: 3px solid black;
+                cursor: pointer;
+            }
+            .slider input[type="radio"]:checked + label{
+                background-color: black;
+                border-color: white;
+            }
+        </style>
+        
+    </head>
+    
+    <body>
+        
+        <ul class="slider">
+            <li>
+                <input type="radio" name="sradio" id="sbutton1" checked>
+                <label for="sbutton1"></label>
+                <img src="img/background_01.jpg" alt="">
+            </li>
+            <li>
+                <input type="radio" name="sradio" id="sbutton2">
+                <label for="sbutton2"></label>
+                <img src="img/background_02.jpg" alt="">
+            </li>
+            <li>
+                <input type="radio" name="sradio" id="sbutton3">
+                <label for="sbutton3"></label>
+                <img src="img/background_03.jpg" alt="">
+            </li>
+            <li>
+                <input type="radio" name="sradio" id="sbutton4">
+                <label for="sbutton4"></label>
+                <img src="img/background_04.jpg" alt="">
+            </li>
+        </ul>
+        
+    </body>
+</html>
