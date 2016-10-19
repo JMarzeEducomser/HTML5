@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Demo Local Storage</title>
+        <meta charset="utf-8"/>
+    </head>
+    
+    <body>
+        
+        <h1>API - Local Storage</h1>
+        
+        <p>
+            <button onclick="clickCounter()" type="button">Presiona el botón!</button>
+        </p>
+        
+        <div id="result"></div>
+        
+        <p>
+            Clic en el botón, para incrementar el contador. Al minimizar, cambiar de pestaña o cerrar y abrir el navegador, la cuenta continúa; no se reinicia.
+        </p>
+        
+        <script>
+            function clickCounter(){
+                if(typeof(Storage) !== "undefined"){
+                    if(localStorage.clickcount){
+                        localStorage.clickcount = Number(localStorage.clickcount)+1;
+                    }else{
+                        localStorage.clickcount = 1;
+                    }
+                    document.getElementById("result").innerHTML = "Tienes " + localStorage.clickcount + " clic's en el botón";
+                }else{
+                    document.getElementById("result").innerHTML = "El navegador no soporte Storage";
+                } 
+            }
+        </script>
+        
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Demo Geolocation</title>
+        <meta charset="utf-8"/>
+    </head>
+    
+    <body>
+        
+        <h1>API - Geolocation</h1>
+        
+        <p>Clic en el botón para obtener tus cordenadas.</p>
+        
+        <button onclick="getLocation()">Clic aquí!</button>
+        
+        <p id="demo"></p>
+        
+        <script>
+            function getLocation(){
+                if(navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(showPosition, showError);
+                }else{
+                    document.getElementById("demo").innerHTML = "El navegador no soporta Geolocalización.";
+                }
+            }
+            
+            function showPosition(position){
+                document.getElementById("demo").innerHTML = "Latitud: " + position.coord.latitude + "<br/>Longitud: " + position.coord.longitude;
+            }
+            
+            function showError(error){
+                switch(error.code){
+                    case error.PERMISSION_DENIED:
+                        document.getElementById("demo").innerHTML = "El usuario denegó el permiso de geolocalización.";
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        document.getElementById("demo").innerHTML = "No se pudo ubicar.";
+                        break;
+                    case error.TIMEOUT:
+                        document.getElementById("demo").innerHTML = "Tiempo de espera exedido";
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        document.getElementById("demo").innerHTML = "Error desconocido.";
+                        break;
+                }
+            }
+        </script>
+        
+    </body>
+</html>
